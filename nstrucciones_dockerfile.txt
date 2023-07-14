@@ -1,0 +1,56 @@
+# lo ejecuto docker build -t alpine .
+# se agrega la imagen que queremos
+* FROM alpine:lastest
+
+
+# se copian archivos que deseamos copiar al contenedor
+* COPY <Origen / Destino>
+    ** COPY --chown=55mygrupo files* / directorio
+
+# se copian archivos que deseamos copiar al contenedor desde una url externa
+* ADD https://url.com/Origen/destino
+
+
+# Lo que vamos a ejecutar dentro de la imagen
+* CMD ["ls","-l","/dev"]
+    *** CMD ls -l /dev
+    *** CMD echo "vamos a contar palabras" | wc -w -
+
+* ENTRYPOINT["echo", "hola"]
+* CMD mundo
+
+            sudo docker build -t entrypoint
+
+* RUN lo que vamos a ejecutar
+
+# Se utilizan para variables antes y despues de la copilacion
+* ENV
+
+# Se utilizan para variables antes de la copilacion
+* ARG  
+
+# Para avilitar puerto o exponerlos
+* EXPOSE
+
+# CAMBIAR DIRECTORIO
+* WORKDIR
+
+# cambiar usuario y grupo
+* USER
+
+
+# para añadir metadata
+
+* LABEL
+
+# punto de montaje de volumenes
+* VOLUMEN
+
+# cuando vamos a usar la misma imagen varias veces
+* ONBUILD
+
+# para cambiar la SHELL
+* SHELL
+
+# Para comprovar si el proceso esta arriba o funcionando
+* HEALTHCHECK
